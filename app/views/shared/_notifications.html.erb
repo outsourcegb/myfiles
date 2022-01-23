@@ -1,0 +1,11 @@
+<% if notice || alert %>
+<div class="container-fluid">
+  <div class="row">
+    <% if notice %>
+      <div class="col alert alert-primary rounded-0"><%= notice %></div>
+    <% elsif alert %>
+    <div class="col alert alert-danger rounded-0"><%= alert %></div>
+    <% end %>
+  </div>
+</div>
+<% end %>
