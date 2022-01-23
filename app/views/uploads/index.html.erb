@@ -1,0 +1,15 @@
+<h2 class="mb-5 border-bottom pb-2">Uploads</h2>
+
+<div id="uploads">
+  <% @uploads.each do |upload| %>
+    <div class="d-flex justify-content-between border-bottom mb-5">
+      <%= render upload %>
+      <p>
+        <%= link_to "Show this upload", upload %>
+      </p>
+    </div>
+
+  <% end %>
+</div>
+
+<%= link_to "New upload", new_upload_path %>

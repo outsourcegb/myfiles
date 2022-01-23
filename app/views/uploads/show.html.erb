@@ -1,0 +1,8 @@
+<%= render @upload %>
+
+<div>
+  <%= link_to "Edit this upload", edit_upload_path(@upload), class: "btn btn-primary" %>
+  <%= link_to "Back to uploads", uploads_path, class: 'btn btn-primary' %>
+
+  <%= link_to "Destroy this upload", @upload, method: :delete, class: 'btn btn-danger my-2 display-inline' %>
+</div>
