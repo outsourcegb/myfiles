@@ -1,9 +1,10 @@
 class UploadsController < ApplicationController
   before_action :set_upload, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /uploads or /uploads.json
   def index
-    @uploads = Upload.all
+    @uploads = current_user.uploads.all
   end
 
   # GET /uploads/1 or /uploads/1.json
@@ -21,7 +22,7 @@ class UploadsController < ApplicationController
 
   # POST /uploads or /uploads.json
   def create
-    @upload = Upload.new(upload_params)
+    @upload = current_user.uploads.new(upload_params)
 
     respond_to do |format|
       if @upload.save
@@ -61,6 +62,10 @@ class UploadsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_upload
       @upload = Upload.find(params[:id])
+
+      if @upload.user != current_user
+        redirect_to uploads_url, notice: "You are not authorized to view this page."
+      end
     end
 
     # Only allow a list of trusted parameters through.

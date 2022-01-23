@@ -19,4 +19,6 @@ class Upload < ApplicationRecord
   has_one_attached :file, dependent: :destroy
 
   validates_presence_of :title
+
+  belongs_to :user
 end

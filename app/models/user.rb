@@ -30,4 +30,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates_presence_of :full_name
+
+  has_many :uploads, dependent: :destroy
 end

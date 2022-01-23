@@ -1,9 +1,11 @@
 <div id="<%= dom_id upload %>">
   <p>
-    <strong>Title:</strong>
+    Title:
     <%= link_to upload.title, url_for(upload.file), target: :blank %>
   </p>
-
+  <p>
+    Sharable Url: <%= URI.parse(root_url) + url_for(upload.file) %>
+  </p>
   <% unless upload.description.blank? %>
     <p>
       <strong>Description:</strong>
